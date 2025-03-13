@@ -35,14 +35,14 @@ export const cards = [
     answer: "Eiffel Tower",
     category: "Geography",
     difficulty: "Medium",
-    image: "https://via.placeholder.com/300?text=Eiffel+Tower"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/324px-Tour_Eiffel_Wikimedia_Commons.jpg?20090602210807"
   },
   {
     question: "Which planet is known as the Red Planet?",
     answer: "Mars",
     category: "Science",
     difficulty: "Easy",
-    image: "https://via.placeholder.com/300?text=Mars"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/640px-OSIRIS_Mars_true_color.jpg"
   },
   {
     question: "Who painted the Mona Lisa?",

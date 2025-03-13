@@ -50,7 +50,7 @@
 }
 
 .flip-card-back {
-  background-color: #2980b9;
+  background-color: #f86cf1;
   color: white;
   transform: rotateX(180deg);
 }
@@ -73,9 +73,11 @@
 }
 
 .card-image {
-  max-width: 100%;
-  max-height: 150px;
-  margin-bottom: 10px;
+  width: 100px;       /* Standard width */
+  height: 100px;      /* Standard height */
+  object-fit: fit;  /* Ensures the image covers the area without distortion */
+  display: block;
+  margin: 0 auto;
 }
 
 .card-category {
