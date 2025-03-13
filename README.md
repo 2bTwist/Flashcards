@@ -1,26 +1,26 @@
-# Web Development Project 2 - *Name of App Here*
+# Web Development Project 2 - *Flashcards - Part1*
 
-Submitted by: **Your Name Here**
+Submitted by: **Edmond Batchankwe Ndanji**
 
-This web app: **insert description**
+This web app: **React-based flashcard tool that displays one card at a time, allowing users to flip it to reveal the answer and use a "Next Card" button to randomly select another card.**
 
-Time spent: **X** hours spent in total
+Time spent: **36** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [ ] **The title of the card set and some information about it, such as a short description and the total number of cards are displayed**
-- [ ] **A single card at a time is displayed, only showing one of the components of the information pair**
-- [ ] **A list of card pairs is created**
-- [ ] **Clicking on the card shows the corresponding component of the information pair**
-- [ ] **Clicking the next button displays a random new card**
+- [X] **The title of the card set and some information about it, such as a short description and the total number of cards are displayed**
+- [X] **A single card at a time is displayed, only showing one of the components of the information pair**
+- [X] **A list of card pairs is created**
+- [X] **Clicking on the card shows the corresponding component of the information pair**
+- [X] **Clicking the next button displays a random new card**
 
 The following **optional** features are implemented:
 
 - [ ] Cards contains images in addition to or in place of text
 - [ ] Cards have different visual styles such as color based on their category
-  - [ ] *visual style implemented*
+- [ ] *visual style implemented*
 
 The following **additional** features are implemented:
 
@@ -41,11 +41,11 @@ GIF created with ...
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+To be honest the main challenge was the card flipping.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2025] [Edmond Batchankwe Ndanji]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

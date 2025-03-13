@@ -1,32 +1,54 @@
-import { useState } from 'react';
+// src/App.jsx
+import React, { useState } from 'react';
+import Flashcard from './components/Flashcard';
 import { cards } from './data/cards';
-import CardSetInfo from './components/CardSetInfo';
-import Card from './components/Card';
-import NextButton from './components/NextButton';
+import FlashCardInfo from './components/FlashCardInfo';
 import './App.css';
 
-const App = () => {
-  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+function App() {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const getRandomCardIndex = () => {
-    return Math.floor(Math.random() * cards.length);
-  };
+  const [prevIndex, setPrevIndex] = useState(currentIndex);
 
-  const handleNextCard = () => {
-    setCurrentCardIndex(getRandomCardIndex());
-  };
+  const handleNext = () =>{
+    setPrevIndex(currentIndex);
+    let nextIndex = Math.floor(Math.random() * (cards.length))
+
+    while(currentIndex === nextIndex){
+      nextIndex = Math.floor(Math.random() * (cards.length))
+    }
+
+    setCurrentIndex(nextIndex)
+  }
+
+  const handlePrevious = () => {
+    setCurrentIndex(prevIndex)
+  }
 
   return (
-    <div className="app">
-      <CardSetInfo
-        title="General Knowledge Flashcards"
-        description="Test your knowledge on a variety of topics!"
-        totalCards={cards.length}
+    <div className="app-container">
+      <FlashCardInfo 
+        title="Do you know your Country Capitals?" 
+        description="Guess the country's capital" 
+        totalCards={cards.length} 
       />
-      <Card card={cards[currentCardIndex]} />
-      <NextButton onClick={handleNextCard} />
+      <div className="flashcard-container">
+        <Flashcard card={cards[currentIndex]} key={currentIndex} />
+      </div>
+      <button 
+        onClick={handlePrevious} 
+        className="button"
+      >
+        Previous Card
+      </button>
+      <button 
+        onClick={handleNext} 
+        className="button"
+      >
+        Next Card
+      </button>
     </div>
   );
-};
+}
 
 export default App;
