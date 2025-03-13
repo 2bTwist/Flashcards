@@ -6,7 +6,7 @@ function FlashCardInfo({ title, description, totalCards }) {
   return (
     <div className="flashcard-info">
       <h1>{title}</h1>
-      <p>{description}</p>
+      <h3>{description}</h3>
       <p>Total Cards: {totalCards}</p>
     </div>
   );

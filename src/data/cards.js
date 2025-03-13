@@ -1,42 +1,71 @@
+// src/data/cards.js
 export const cards = [
   {
     question: "What is the capital of France?",
-    answer: "Paris"
+    answer: "Paris",
+    category: "Geography",
+    difficulty: "Easy"
   },
   {
     question: "What is the capital of Germany?",
-    answer: "Berlin"
+    answer: "Berlin",
+    category: "Geography",
+    difficulty: "Easy"
   },
   {
     question: "What is the capital of Italy?",
-    answer: "Rome"
+    answer: "Rome",
+    category: "Geography",
+    difficulty: "Easy"
   },
   {
     question: "What is the capital of Spain?",
-    answer: "Madrid"
+    answer: "Madrid",
+    category: "Geography",
+    difficulty: "Easy"
   },
   {
     question: "What is the capital of Portugal?",
-    answer: "Lisbon"
+    answer: "Lisbon",
+    category: "Geography",
+    difficulty: "Easy"
   },
   {
-    question: "What is the capital of Norway?",
-    answer: "Oslo"
+    question: "Identify this famous landmark:",
+    answer: "Eiffel Tower",
+    category: "Geography",
+    difficulty: "Medium",
+    image: "https://via.placeholder.com/300?text=Eiffel+Tower"
   },
   {
-    question: "What is the capital of Sweden?",
-    answer: "Stockholm"
+    question: "Which planet is known as the Red Planet?",
+    answer: "Mars",
+    category: "Science",
+    difficulty: "Easy",
+    image: "https://via.placeholder.com/300?text=Mars"
   },
   {
-    question: "What is the capital of Denmark?",
-    answer: "Copenhagen"
+    question: "Who painted the Mona Lisa?",
+    answer: "Leonardo da Vinci",
+    category: "Art",
+    difficulty: "Medium"
   },
   {
-    question: "What is the capital of the Netherlands?",
-    answer: "Amsterdam"
+    question: "What is the largest ocean on Earth?",
+    answer: "Pacific Ocean",
+    category: "General",
+    difficulty: "Easy"
   },
   {
-    question: "What is the capital of Belgium?",
-    answer: "Brussels"
+    question: "What is the tallest mountain in the world?",
+    answer: "Mount Everest",
+    category: "General",
+    difficulty: "Medium"
+  },
+  {
+    question: "Who discovered penicillin?",
+    answer: "Alexander Fleming",
+    category: "General",
+    difficulty: "Hard"
   }
 ];

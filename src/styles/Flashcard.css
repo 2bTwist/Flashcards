@@ -35,6 +35,7 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
@@ -52,4 +53,33 @@
   background-color: #2980b9;
   color: white;
   transform: rotateX(180deg);
+}
+
+/* Category-specific styles */
+.flip-card-front.geography {
+  background-color: #a6ccf3;
+}
+
+.flip-card-front.science {
+  background-color: #a3e4d7;
+}
+
+.flip-card-front.art {
+  background-color: #fadbd8;
+}
+
+.flip-card-front.general {
+  background-color: #d5f5e3;
+}
+
+.card-image {
+  max-width: 100%;
+  max-height: 150px;
+  margin-bottom: 10px;
+}
+
+.card-category {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 10px;
 }

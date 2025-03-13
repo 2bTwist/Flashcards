@@ -28,8 +28,8 @@ function App() {
   return (
     <div className="app-container">
       <FlashCardInfo 
-        title="Do you know your Country Capitals?" 
-        description="Guess the country's capital" 
+        title="General Knowledge Trivia" 
+        description="Are you smarter than a 5 year old?" 
         totalCards={cards.length} 
       />
       <div className="flashcard-container">
