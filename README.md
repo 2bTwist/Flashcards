@@ -18,9 +18,9 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [ ] Cards contains images in addition to or in place of text
-- [ ] Cards have different visual styles such as color based on their category
-- [ ] *visual style implemented*
+- [X] Cards contains images in addition to or in place of text
+- [X] Cards have different visual styles such as color based on their category
+- [X] *visual style implemented*
 
 The following **additional** features are implemented:
 
@@ -31,17 +31,12 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented required features:
 
 <div>
-    <a href="">
-      <img style="max-width:300px;" src="">
+    <a href="https://i.imgur.com/nYKPGnu.gif">
+      <img style="max-width:300px;" src="https://i.imgur.com/nYKPGnu.gif">
     </a>
 </div>
 
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+GIF created with ...[ScreenToGif](https://www.screentogif.com/) for Windows
 
 ## Notes
 
