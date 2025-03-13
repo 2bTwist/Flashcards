@@ -6,6 +6,6 @@ const CardSetInfo = ({ title, description, totalCards }) => {
         <p>Total Cards: {totalCards}</p>
       </div>
     );
-  };
+};
   
   export default CardSetInfo;
