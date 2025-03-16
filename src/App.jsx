@@ -4,6 +4,8 @@ import { cards as originalCards } from './data/cards';
 import FlashCardInfo from './components/FlashCardInfo';
 import './App.css';
 import Guess from './components/Guess';
+import stringSimilarity from 'string-similarity';
+
 
 function App() {
   const [cards, setCards] = useState([...originalCards]); // Store shuffled cards
@@ -12,10 +14,16 @@ function App() {
   const [guessed, setGuessed] = useState('');
 
   const checkGuess = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault(); // Prevent form refresh
 
-    if (input.toLowerCase().trim() === cards[currentIndex].answer.toLowerCase().trim()) {
-      setGuessed('right');
+    const userInput = input.toLowerCase().trim();
+    const correctAnswer = cards[currentIndex].answer.toLowerCase().trim();
+
+    // Use string similarity to allow close matches
+    const similarity = stringSimilarity.compareTwoStrings(userInput, correctAnswer);
+
+    if (userInput === correctAnswer || similarity > 0.8) {
+      setGuessed('right'); // Accept as correct if similarity > 80%
     } else {
       setGuessed('wrong');
     }
