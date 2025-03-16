@@ -11,7 +11,9 @@ function App() {
   const [input, setInput] = useState('');
   const [guessed, setGuessed] = useState('');
 
-  const checkGuess = () => {
+  const checkGuess = (e) => {
+    e.preventDefault();
+
     if (input.toLowerCase().trim() === cards[currentIndex].answer.toLowerCase().trim()) {
       setGuessed('right');
     } else {
@@ -54,7 +56,7 @@ function App() {
       <div className="flashcard-container">
         <Flashcard card={cards[currentIndex]} key={currentIndex} />
 
-        <Guess handleChange={(e) => setInput(e.target.value)} currentVal={guessed} />
+        <Guess handleChange={(e) => setInput(e.target.value)} handleSubmit={checkGuess} currentVal={guessed} />
 
         <button type="button" onClick={checkGuess} className="button submit">
           Submit
@@ -64,15 +66,15 @@ function App() {
       {/* Navigation Buttons */}
       <div className="navigation-buttons">
         <button onClick={handlePrevious} className="button" disabled={currentIndex === 0}>
-          Previous Card
+          Previous Card ⬅️
         </button>
         <button onClick={handleNext} className="button" disabled={currentIndex === cards.length - 1}>
-          Next Card
+          Next Card ➡️
         </button>
 
         {/* Shuffle Button */}
         <button onClick={handleShuffle} className="button shuffle">
-          Shuffle Cards
+          Shuffle Cards 🔀
         </button>
       </div>
 

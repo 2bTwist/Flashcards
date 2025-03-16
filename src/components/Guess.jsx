@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Guess({handleChange, currentVal}) {
+function Guess({handleChange, handleSubmit, currentVal}) {
   return (
     <div>
-        <form action="">
+        <form action="#" onSubmit={handleSubmit}>
             <label htmlFor="myguess">
                 Guess the answer here:
                 <input type="text" id='myguess'
