@@ -9,6 +9,8 @@ import stringSimilarity from 'string-similarity';
 
 function App() {
   const [cards, setCards] = useState([...originalCards]); // Store shuffled cards
+  const [currentStreak, setCurrentStreak] = useState(0);
+  const [longestStreak, setLongestStreak] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [input, setInput] = useState('');
   const [guessed, setGuessed] = useState('');
@@ -22,10 +24,15 @@ function App() {
     // Use string similarity to allow close matches
     const similarity = stringSimilarity.compareTwoStrings(userInput, correctAnswer);
 
-    if (userInput === correctAnswer || similarity > 0.8) {
-      setGuessed('right'); // Accept as correct if similarity > 80%
+    if (userInput === correctAnswer || similarity > 0.5) {
+      setGuessed('right'); // Accept as correct if similarity > 50%
+      setCurrentStreak(currentStreak + 1)
     } else {
       setGuessed('wrong');
+      if(currentStreak > longestStreak){
+        setLongestStreak(currentStreak);
+      }
+      setCurrentStreak(0);
     }
   };
 
@@ -61,6 +68,9 @@ function App() {
         description="Are you smarter than a 5-year-old?"
         totalCards={cards.length}
       />
+      <div className="stats-container">
+        <p>Current Streak: {currentStreak} , Longest Streak: {longestStreak}</p>
+      </div>
       <div className="flashcard-container">
         <Flashcard card={cards[currentIndex]} key={currentIndex} />
 
