@@ -39,6 +39,15 @@ body {
     background-color: gray;
     cursor: not-allowed;
   }
+
+  .shuffle {
+    background-color: #28a745;
+  }
+  
+  .shuffle:hover {
+    background-color: #218838;
+  }
+  
   
   .textbox {
     padding: 3px;

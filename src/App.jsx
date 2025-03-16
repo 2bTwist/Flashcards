@@ -1,37 +1,32 @@
-// src/App.jsx
 import React, { useState } from 'react';
 import Flashcard from './components/Flashcard';
-import { cards } from './data/cards';
+import { cards as originalCards } from './data/cards';
 import FlashCardInfo from './components/FlashCardInfo';
 import './App.css';
 import Guess from './components/Guess';
 
 function App() {
+  const [cards, setCards] = useState([...originalCards]); // Store shuffled cards
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const [prevIndex, setPrevIndex] = useState(currentIndex);
-
-  const [input, setInput] = useState("");
-
-  const [guessed, setGuessed] = useState("")
+  const [input, setInput] = useState('');
+  const [guessed, setGuessed] = useState('');
 
   const checkGuess = () => {
     if (input.toLowerCase().trim() === cards[currentIndex].answer.toLowerCase().trim()) {
-      setGuessed('right'); // Apply green border
+      setGuessed('right');
     } else {
-      setGuessed('wrong'); // Apply red border
+      setGuessed('wrong');
     }
   };
 
   const handleNext = () => {
     if (currentIndex < cards.length - 1) {
       setCurrentIndex(currentIndex + 1);
-      setInput(''); // Reset input field
-      setGuessed(''); // Reset border styling
+      setInput('');
+      setGuessed('');
     }
   };
 
-  // Move to the previous card
   const handlePrevious = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
@@ -40,36 +35,48 @@ function App() {
     }
   };
 
+  // 🔀 Shuffle function
+  const handleShuffle = () => {
+    const shuffled = [...originalCards].sort(() => Math.random() - 0.5);
+    setCards(shuffled);
+    setCurrentIndex(0); // Reset to first card
+    setInput('');
+    setGuessed('');
+  };
 
   return (
     <div className="app-container">
-      <FlashCardInfo 
-        title="General Knowledge Trivia" 
-        description="Are you smarter than a 5 year old?" 
-        totalCards={cards.length} 
+      <FlashCardInfo
+        title="General Knowledge Trivia"
+        description="Are you smarter than a 5-year-old?"
+        totalCards={cards.length}
       />
       <div className="flashcard-container">
         <Flashcard card={cards[currentIndex]} key={currentIndex} />
 
-        <Guess handleChange={(e) => setInput(e.target.value)} currentVal={guessed}/>
-        
-        <button type='submit' onClick={checkGuess} className='button submit'> Submit</button>
+        <Guess handleChange={(e) => setInput(e.target.value)} currentVal={guessed} />
+
+        <button type="button" onClick={checkGuess} className="button submit">
+          Submit
+        </button>
       </div>
 
-      <button 
-        onClick={handlePrevious} 
-        className="button"
-        disabled={currentIndex === 0}
-      >
-        Previous Card
-      </button>
-      <button 
-        onClick={handleNext} 
-        className="button"
-        disabled={currentIndex === cards.length - 1}
-      >
-        Next Card
-      </button>
+      {/* Navigation Buttons */}
+      <div className="navigation-buttons">
+        <button onClick={handlePrevious} className="button" disabled={currentIndex === 0}>
+          Previous Card
+        </button>
+        <button onClick={handleNext} className="button" disabled={currentIndex === cards.length - 1}>
+          Next Card
+        </button>
+
+        {/* Shuffle Button */}
+        <button onClick={handleShuffle} className="button shuffle">
+          Shuffle Cards
+        </button>
+      </div>
+
+
     </div>
   );
 }
