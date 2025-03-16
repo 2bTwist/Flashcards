@@ -14,6 +14,7 @@ function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [input, setInput] = useState('');
   const [guessed, setGuessed] = useState('');
+  const [masteredIndex, setMasteredIndex] = useState([]);
 
   const checkGuess = (e) => {
     if (e) e.preventDefault(); // Prevent form refresh
@@ -21,37 +22,51 @@ function App() {
     const userInput = input.toLowerCase().trim();
     const correctAnswer = cards[currentIndex].answer.toLowerCase().trim();
 
-    // Use string similarity to allow close matches
-    const similarity = stringSimilarity.compareTwoStrings(userInput, correctAnswer);
-
-    if (userInput === correctAnswer || similarity > 0.5) {
-      setGuessed('right'); // Accept as correct if similarity > 50%
+    if (correctAnswer.includes(userInput) || userInput.includes(correctAnswer)) {
+      setGuessed('right'); // Mark as correct
       setCurrentStreak(currentStreak + 1)
     } else {
-      setGuessed('wrong');
+      setGuessed('wrong'); // Mark as incorrect
       if(currentStreak > longestStreak){
         setLongestStreak(currentStreak);
+        setCurrentStreak(0);
       }
-      setCurrentStreak(0);
     }
   };
 
+  const saveMastered = () => {
+    const newMastered = [...masteredIndex, currentIndex]
+    setMasteredIndex(newMastered);
+  }
+
   const handleNext = () => {
-    if (currentIndex < cards.length - 1) {
-      setCurrentIndex(currentIndex + 1);
+    let theIndex = currentIndex + 1; // Start from the next index
+
+    while (theIndex < cards.length && masteredIndex.includes(theIndex)) {
+      theIndex++; // Keep moving forward if the card is mastered
+    }
+
+    if (theIndex < cards.length) {
+      setCurrentIndex(theIndex);
       setInput('');
       setGuessed('');
     }
   };
 
   const handlePrevious = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+    let theIndex = currentIndex - 1; // Start from the previous index
+
+    while (theIndex >= 0 && masteredIndex.includes(theIndex)) {
+      theIndex--; // Keep moving backward if the card is mastered
+    }
+
+    if (theIndex >= 0) {
+      setCurrentIndex(theIndex);
       setInput('');
       setGuessed('');
     }
   };
-
+  
   // 🔀 Shuffle function
   const handleShuffle = () => {
     const shuffled = [...originalCards].sort(() => Math.random() - 0.5);
@@ -78,6 +93,9 @@ function App() {
 
         <button type="button" onClick={checkGuess} className="button submit">
           Submit
+        </button>
+        <button type="button" onClick={saveMastered} className="button mastered">
+          Mastered
         </button>
       </div>
 

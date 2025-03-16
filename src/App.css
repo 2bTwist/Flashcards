@@ -43,6 +43,13 @@ body {
   .shuffle {
     background-color: #28a745;
   }
+
+  .mastered {
+    background-color: #ccb636;
+  }
+  .mastered:hover {
+    background-color: #ffd902;
+  }
   
   .shuffle:hover {
     background-color: #218838;
