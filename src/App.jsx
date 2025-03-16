@@ -23,24 +23,22 @@ function App() {
     }
   };
 
-  const handleNext = () =>{
-    setPrevIndex(currentIndex);
-    let nextIndex = Math.floor(Math.random() * (cards.length))
-
-    while(currentIndex === nextIndex){
-      nextIndex = Math.floor(Math.random() * (cards.length))
+  const handleNext = () => {
+    if (currentIndex < cards.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+      setInput(''); // Reset input field
+      setGuessed(''); // Reset border styling
     }
+  };
 
-    setCurrentIndex(nextIndex);
-    setInput(''); // Reset input field
-    setGuessed(''); // Reset border styling
-  }
-
+  // Move to the previous card
   const handlePrevious = () => {
-    setCurrentIndex(prevIndex);
-    setInput('');
-    setGuessed('');
-  }
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+      setInput('');
+      setGuessed('');
+    }
+  };
 
 
   return (
@@ -61,12 +59,14 @@ function App() {
       <button 
         onClick={handlePrevious} 
         className="button"
+        disabled={currentIndex === 0}
       >
         Previous Card
       </button>
       <button 
         onClick={handleNext} 
         className="button"
+        disabled={currentIndex === cards.length - 1}
       >
         Next Card
       </button>

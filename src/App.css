@@ -34,6 +34,11 @@ body {
   .button:hover {
     background-color: #1a5276;
   }
+
+  .button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
   
   .textbox {
     padding: 3px;
